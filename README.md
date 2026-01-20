@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# Encurtador de URL (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o projeto frontend para a aplicação de encurtamento de URLs. Desenvolvido com React, TypeScript e Vite, ele oferece uma interface simples e intuitiva para que os usuários gerem links curtos e QR Codes, com opções de tempo de expiração.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Encurtamento de Links: Insira uma URL longa e receba uma versão encurtada instantaneamente.
 
-## React Compiler
+- Tempo de Expiração Personalizado: O usuário pode definir por quanto tempo o link deve permanecer ativo (1h, 2h, 5h, 10h ou 24h).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Geração de QR Code: Além do link texto, a aplicação gera um QR Code para facilitar o compartilhamento.
 
-## Expanding the ESLint configuration
+- Visualização Alternada: Alterne facilmente entre a visualização do link encurtado e o QR Code.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React (v19)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- TypeScript
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Vite
+
+- React QR Code (para geração dos códigos QR)
+
+- CSS Puro (para estilização leve e responsiva)
+
+## 🔗 Projeto Backend
+
+Este frontend consome a API do projeto backend, responsável pelo processamento e armazenamento das URLs. Você pode acessar o repositório do backend no link abaixo:
+
+- Repositório Backend: https://github.com/JoaoPeNascimento/Encurtador-url
+
+## 📦 Como rodar o projeto
+
+Siga os passos abaixo para executar a aplicação em seu ambiente local:
+
+1- Clone o repositório:
+
+```Bash
+git clone https://github.com/JoaoPeNascimento/Encurtador-de-URL.git
+cd Encurtador-de-URL
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2- Instale as dependências:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```Bash
+npm install
 ```
+
+3- Inicie o servidor de desenvolvimento:
+
+```Bash
+npm run dev
+```
+
+4- Acesse a aplicação: Abra o seu navegador e acesse o link indicado no terminal (geralmente `http://localhost:5173`).
+
+## 👤 Autor
+
+Feito por João Nascimento.
