@@ -7,6 +7,8 @@ function App() {
   const [originalUrl, setOriginalUrl] = useState("");
   const [expirationTime, setExpirationTime] = useState(1);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [viewMode, setViewMode] = useState("url");
 
   const handleShortenUrl = async () => {
@@ -14,6 +16,8 @@ function App() {
       alert("Por favor, insira uma URL");
       return;
     }
+
+    setIsLoading(true);
 
     try {
       const response = await fetch(
@@ -43,12 +47,20 @@ function App() {
     } catch (error) {
       console.error("Erro:", error);
       alert("Erro de conexão");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
       <h1>Encurtador de URL 🔗</h1>
+      <p>
+        Encurte suas URLs de maneira simples e rápida.🚀 <br />
+        Com a opção de URL e QR Code, você pode compartilhar links de forma mais
+        eficiente. <br />
+        Escolha o tempo de expiração para maior controle sobre seus links.
+      </p>
       <div className="card">
         <div className="input-group">
           <input
@@ -56,12 +68,14 @@ function App() {
             placeholder="Cole sua URL aqui..."
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
+            disabled={isLoading}
           />
 
           <select
             defaultValue="1"
             value={expirationTime}
             onChange={(e) => setExpirationTime(Number(e.target.value))}
+            disabled={isLoading}
           >
             <option value="1">1hr</option>
             <option value="2">2hrs</option>
@@ -71,7 +85,9 @@ function App() {
           </select>
         </div>
 
-        <button onClick={handleShortenUrl}>Encurtar URL</button>
+        <button onClick={handleShortenUrl} disabled={isLoading}>
+          {isLoading ? "Encurtando..." : "Encurtar URL"}
+        </button>
       </div>
 
       {shortUrl && (
