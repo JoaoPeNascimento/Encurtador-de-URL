@@ -22,10 +22,10 @@
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(255, 255, 255, 0.87);
   border: 1px solid #646cff;
-
   border-radius: 8px 0 0 8px;
   border-right: none;
   margin-bottom: 0;
+  box-sizing: border-box;
 }
 
 .input-group select {
@@ -36,8 +36,8 @@
   background-color: rgba(255, 255, 255, 0.87);
   border: 1px solid #646cff;
   cursor: pointer;
-
   border-radius: 0 8px 8px 0;
+  box-sizing: border-box;
 }
 
 button {
@@ -89,4 +89,46 @@ button:focus-visible {
   background-color: #646cff;
   color: white;
   border-color: #646cff;
+}
+
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2em !important;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group input {
+    width: 100%;
+    border-radius: 8px;
+    border-right: 1px solid #646cff;
+  }
+
+  .input-group select {
+    width: 100%;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .card > button {
+    width: 100%;
+  }
+
+  .result-content {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
 }
